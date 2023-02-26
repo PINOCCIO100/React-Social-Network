@@ -1,0 +1,46 @@
+.postPosted {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  column-gap: 15px;
+  margin: 0 0 15px 0;
+
+  .postPosted__userProfilePhoto {
+    width: 100px;
+  }
+
+  .postPosted__msgAndBtnsCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .postPosted__message {
+      width: 100%;
+      height: 100%;
+      flex: 1 1 auto;
+
+      p {
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        border: 1px solid var(--color-bg-4);
+        border-radius: 20px;
+        white-space: pre-wrap;
+        // overflow-wrap: break-word;
+        word-break: break-word;
+      }
+    }
+
+    .postPosted__ratingButtons {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+}

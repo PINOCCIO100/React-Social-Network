@@ -1,0 +1,44 @@
+/* Цветовая схема для сайта */
+
+:root {
+  /* Background color */
+
+    /* Site background: */
+    --color-bg-1: #49504b;
+    /* ??: */
+    --color-bg-2: #77d1b3;
+    /* Sidebar: */
+    --color-bg-3: #f2ea86;
+    /* Header: */
+    --color-bg-4: #df8b30;
+    /* Buttons: */
+    --color-bg-5: #AF455A;
+    /* Like-buttons: */
+    --color-bg-6: #4525b6;
+    /* Disike-buttons: */
+    --color-bg-7: #a71230 ;
+    /* Разделитель на темном фоне */
+    --color-bg-8: #4f8e79;
+    /* Разделитель на светлом фоне */
+    --color-bg-9: #77d1b3;
+    /* Disabled buttons */
+    --color-bg-10: #aaa;
+    /* Pressed buttons */
+    --color-bg-11: orangered;
+
+  /* Font color */
+
+    /* Основной шрифт на темном фоне: */
+    --color-ft-1: #eee;
+    /* Основной шрифт на светлом фоне: */
+    --color-ft-2: #444;
+    /* Шрифт ссылок на темном фоне при наведении: */
+    --color-ft-3: #fff;
+    /* Шрифт ссылок на светлом фоне при наведении: */
+    --color-ft-4: #222;
+    /* Шрифт для статусов: */
+    --color-ft-5: #1df8a4;
+    /* Шрифт для "Add status" : */
+    --color-ft-6: #999;
+
+}

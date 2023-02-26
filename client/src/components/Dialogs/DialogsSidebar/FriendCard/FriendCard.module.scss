@@ -1,0 +1,47 @@
+.FriendCard {
+  font-size: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+
+  .NavLink {
+    flex: 0 0 auto;
+    width: fit-content;
+  }
+
+  .FriendCard__name {
+
+    margin: 0 0 0 1.2em;
+    position: relative;
+    width: fit-content;
+    // white-space: pre-wrap;
+    // word-break: keep-all;
+    // overflow-wrap: break-word;
+    // word-break: normal;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      left: -1em;
+      border-radius: 50%;
+      width: 0.5em;
+      height: 0.5em;
+      background-color: var(--color-ft-1);
+    }
+
+  }
+
+  .FriendCard__photo {
+    flex: 0 1 90px;
+    min-width: 50px;
+  }
+
+  .active {
+    font-weight: 900;
+  }
+}

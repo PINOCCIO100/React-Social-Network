@@ -1,0 +1,39 @@
+.ButtonRating {
+  button {
+    user-select: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: var(--color-ft-1);
+    min-width: 55px;
+    width: fit-content;
+    height: auto;
+    padding: 5px;
+
+    &:hover {
+      box-shadow: 0 0 10px 3px #999;
+    }
+
+    &:active {
+      box-shadow: 0 0 10px 3px #ccc;
+    }
+  }
+
+  span {
+    display: inline-block;
+    margin: 0 0 0 3px;
+    padding: 0 0 0 3px;
+    border-left: 1px solid rgba(#999, 0.3);
+  }
+
+  .btnLike {
+    background-color: var(--color-bg-6);
+  }
+
+  .btnDislike {
+    background-color: var(--color-bg-7);
+  }
+
+  .active {
+    box-shadow: 0 0 10px 4px var(--color-bg-11) ;
+  }
+}

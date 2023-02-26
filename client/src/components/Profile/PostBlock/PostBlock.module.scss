@@ -1,0 +1,20 @@
+.postBlock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .postBlock__title {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+  }
+
+  .postBlock__TextInput {
+    textarea {
+      min-height: 80px;
+    }
+
+    button {}
+  }
+}

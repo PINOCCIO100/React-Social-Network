@@ -1,0 +1,21 @@
+.DialogsMessages {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.DialogsMessages__container {
+  flex: 1 1 auto;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.DialogsMessages__TextInput {
+  textarea {}
+
+  button {}
+}

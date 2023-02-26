@@ -1,0 +1,6 @@
+/* Обнуление стилей */
+@import url('./resetStyle.css'); 
+/* Цветовая схема для сайта */
+@import url('./palette/palette.css');
+/* Кастомный скролл для элемента */
+@import url('./scrollBar/scrollBar.css');

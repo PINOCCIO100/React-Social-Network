@@ -1,0 +1,46 @@
+.Dialogs {
+  height: 100%;
+  width: 100%;
+}
+
+.Dialogs__wrapper {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Dialogs__title {
+  text-transform: uppercase;
+  flex: 0 1;
+  height: 5%;
+
+  font-size: 25px;
+  font-weight: 700;
+  margin: 15px;
+}
+
+.Dialogs__body {
+  flex: 1 1;
+  height: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Dialogs__sidebar {
+  border-right: 4px solid var(--color-bg-8);
+  flex: 0 0 auto;
+  width: 25%;
+  min-width: max-content;
+}
+
+.Dialogs__messages {
+  // overflow: auto;
+  flex: 1 0 auto;
+  width: 65%;
+  height: 100%;
+}

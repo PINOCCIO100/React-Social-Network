@@ -1,0 +1,40 @@
+  .TextInput {
+    height: fit-content;
+    width: 100%;
+    padding: 10px;
+    color: var(--color-ft-2);
+    font-size: 20px;
+
+    textarea {
+      padding: 10px;
+      min-height: 50px;
+      max-height: 150px;
+      width: 100%;
+      border-radius: 5px;
+      resize: none;
+      margin: 0 0 7px 0;
+    }
+
+    .TextInput__buttonArea {
+      user-select: none;
+      display: flex;
+      justify-content: flex-end;
+
+      .TextInput__button {
+        border-radius: 5px;
+        background-color: var(--color-bg-5);
+        font-size: 1.2rem;
+        color: var(--color-ft-1);
+        width: 80px;
+        height: 30px;
+
+        &:hover {
+          box-shadow: 0 0 10px 3px #999;
+        }
+
+        &:active {
+          box-shadow: 0 0 10px 3px #ccc;
+        }
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+.ProfileStatus_span {
+  font-weight: 600;
+  min-width: 10 px;
+  min-height: 10px;
+  font-size: 18px;
+  margin: 0 0 15px 0;
+  color: var(--color-ft-5);
+}
+
+.ProfileStatus_input {
+  input {
+    font-size: 18px;
+    padding: 5px;
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+    margin: 0 0 10px 0;
+  }
+}
+
+.ProfileStatus_span_empty {
+  font-size: 15px;
+  color: var(--color-ft-6);
+}

@@ -1,0 +1,44 @@
+.UserCard {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 0 0 15px 0;
+
+  .UserCard__userProfilePhoto {
+    overflow: hidden;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .UserCard__textPart {
+    margin: 10px 0;
+
+    a {
+      color: inherit;
+
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+
+  .UserCard__userName {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+  }
+
+  .UserCard__userInfo {
+    line-height: 20px;
+  }
+}

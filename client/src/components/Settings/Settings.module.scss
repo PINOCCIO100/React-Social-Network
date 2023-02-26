@@ -1,0 +1,28 @@
+.Settings {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  .Settings__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .Settings__title {
+    text-transform: uppercase;
+    flex: 0 1;
+    height: 5%;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+  }
+
+  .Settings__body {
+    font-size: 20px;
+    flex: 1 1;
+    height: 95%;
+  }
+}
