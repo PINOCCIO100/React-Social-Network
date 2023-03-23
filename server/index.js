@@ -56,6 +56,7 @@ app.use(cookieParser(process.env.SECRET));
 app.use('/api/auth', authRoute);
 
 //Проверка на авторизованность пользователя по кукам (корректный id сессии)
+
 app.use(authChecker);
 
 app.use('/api/avatars', usersAvatarsRoute);

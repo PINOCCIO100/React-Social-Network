@@ -1,0 +1,32 @@
+.SignUpForm Form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin: 0 auto;
+  gap: 10px;
+
+  >* {
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  button {
+    align-self: center;
+    margin-top: 20px;
+    width: 20%;
+    max-width: 20vw;
+    border-radius: 5px;
+    background-color: var(--color-bg-5);
+    font-size: 1.2rem;
+    color: var(--color-ft-1);
+
+    &:hover {
+      box-shadow: 0 0 10px 3px #999;
+    }
+
+    &:active {
+      box-shadow: 0 0 10px 3px #ccc;
+    }
+  }
+}

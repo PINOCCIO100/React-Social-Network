@@ -14,6 +14,7 @@ import ProfileRouter from './components/Profile/ProfileRouter';
 import AuthContainer from './components/Auth/AuthContainer';
 import TrailingPage from './components/TrailingPage/TrailingPage';
 import Redirect from './components/sharedComponents/WithAuthRedirect/WithAuthRedirect';
+import { SignUpForm } from './SignUpForm';
 
 export function App() {
   return (
@@ -29,7 +30,7 @@ export function App() {
             <Route path="dialogs/*" element={<DialogsContainer />} />
             <Route path="news/*" element={null} />
             <Route path="music/*" element={null} />
-            <Route path="settings/*" element={null} />
+            <Route path="settings/*" element={<SignUpForm />} />
             <Route path='*' element={<TrailingPage />} />
           </Route>
         </Routes >
@@ -50,6 +51,5 @@ function Layout() {
     </>
   );
 }
-
 
 
