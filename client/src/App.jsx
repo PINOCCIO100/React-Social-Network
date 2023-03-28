@@ -11,10 +11,10 @@ import Sidebar from './components/SideBar/Sidebar';
 // import Settings from './components/Settings/Settings';
 import Users from './components/Users/Users';
 import ProfileRouter from './components/Profile/ProfileRouter';
-import AuthContainer from './components/Auth/AuthContainer';
 import TrailingPage from './components/TrailingPage/TrailingPage';
 import Redirect from './components/sharedComponents/WithAuthRedirect/WithAuthRedirect';
 import { SignUpForm } from './SignUpForm';
+import SignInContainer from './components/SignIn/SignInContainer';
 
 export function App() {
   return (
@@ -22,7 +22,7 @@ export function App() {
       <HeaderContainer />
       {
         < Routes >
-          <Route path="login/*" element={<AuthContainer />} />
+          <Route path="login/*" element={<SignInContainer />} />
           <Route path='/*' element={<Layout />}>
             <Route index element={<Navigate to={'/profile'} />} />
             <Route path="profile/*" element={<ProfileRouter />} />

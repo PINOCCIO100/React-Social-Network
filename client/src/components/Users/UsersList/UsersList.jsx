@@ -13,6 +13,7 @@ const UsersList = (props) => {
           props.users.map(user => {
             return (
               <UserInfoCard
+                me={props.curUsID === user.id}
                 key={key++}
                 user={user}
                 isFollowingProcess={props.followingProcess.some(id => id === user.id)}

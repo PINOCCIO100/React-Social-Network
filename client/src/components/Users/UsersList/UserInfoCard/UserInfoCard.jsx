@@ -1,7 +1,7 @@
 import ProfilePhoto from '../../../sharedComponents/ProfilePhoto/ProfilePhoto';
 import s from './UserInfoCard.module.scss';
 
-function UserInfoCard({ user, isFollowingProcess, handleFollow }) {
+function UserInfoCard({ me, user, isFollowingProcess, handleFollow }) {
   return (
     <div className={s.UserInfoCard}>
       <div className={s.UserInfoCard__container}>
@@ -12,11 +12,11 @@ function UserInfoCard({ user, isFollowingProcess, handleFollow }) {
             id={user.id}
           />
           <button
-            disabled={isFollowingProcess}
+            disabled={isFollowingProcess || me}
             onClick={() => handleFollow(user.id, !user.followed)}
             className={[s.UserInfoCard__followButton, user.followed ? s.unfollow : s.follow].join(' ')}
           >
-            {user.followed ? 'Unfollow' : 'Follow'}
+            {me ? 'My profile' : user.followed ? 'Unfollow' : 'Follow'}
           </button>
         </div>
         <div className={s.UserInfoCard__column}>

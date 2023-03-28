@@ -108,8 +108,8 @@ export const handleFollow = (userID, isFollow) => async (dispatch) => {
   const res = await reqToggleFollowUser(userID, isFollow);
   if (res.resultCode === 0) {
     dispatch(toggleFollow(userID, isFollow));
-    dispatch(toggleFollowingProcess(userID, false));
   }
+  dispatch(toggleFollowingProcess(userID, false));
 }
 
 export default usersPageReducer;

@@ -7,6 +7,6 @@ followRoute.get('/:userID', getFollowStatus);
 
 followRoute.post('/:userID', followUser);
 
-followRoute.delete('/:userID', unfollowUser);
+followRoute.delete('/:userID', unfollowUser); 
 
 exports.followRoute = followRoute;

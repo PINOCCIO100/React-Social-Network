@@ -10,10 +10,10 @@ import { compose } from 'redux';
 import { USERS_PAGE } from '../../../store/reducers/fetchingReducer';
 
 function UsersListContainer(props) {
+  const getUsers = props.getUsers;
   useEffect(() => {
-    props.getUsers()
-    // eslint-disable-next-line 
-  }, [props.getUsers])
+    getUsers()
+  }, [getUsers])
   return (
     props.isFetching ?
       <Preloader /> :
@@ -21,6 +21,7 @@ function UsersListContainer(props) {
         users={props.users}
         followingProcess={props.followingProcess}
         handleFollow={props.handleFollow}
+        curUsID={props.curUsID}
       />
   );
 }
@@ -31,6 +32,7 @@ export default compose(
       isFetching: state.FetchingState[USERS_PAGE],
       followingProcess: state.UsersPage.followingProcess,
       users: state.UsersPage.users,
+      curUsID: state.Auth.userData.userID
     }),
     {
       getUsers,
