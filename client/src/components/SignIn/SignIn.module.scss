@@ -35,13 +35,17 @@
 }
 
 .SignIn__checkboxBlock {
+  cursor: pointer;
   flex: 0 0 auto;
+
   label {
+    font-weight: 700;
+    cursor: inherit;
     margin-left: 10px;
   }
 
   input {
-    cursor: pointer;
+    cursor: inherit;
     padding: 50px;
   }
 }

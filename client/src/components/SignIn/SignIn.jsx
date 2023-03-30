@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import styles from './SignIn.module.scss';
 import * as Yup from 'yup';
+import { WideCheckbox } from './WideCheckbox';
 
 const signInSchema = Yup.object({
   email: Yup.string().email().required(),
@@ -19,11 +20,8 @@ export function SignIn(props) {
         }}
         validationSchema={signInSchema}
         onSubmit={(values) => {
-          props.submitUserData({
-            email: values.email,
-            password: values.password,
-            rememberMe: values.rememberMe
-          })
+          console.log(values);
+          props.submitUserData(values)
         }}
       >
         {({ values, errors, touched }) => (
@@ -37,12 +35,7 @@ export function SignIn(props) {
             <Field className={styles.SignIn__password} name='password' type='password' />
             <ErrorMessage name='password' />
 
-            <div className={styles.SignIn__checkboxBlock}>
-              <Field name='rememberMe' type='checkbox' />
-              <label className={styles.SignIn__label} htmlFor='rememberMe'>Remember me</label>
-            </div>
-            {/* <ErrorMessage name='rememberMe' /> */}
-
+            <WideCheckbox className={styles.SignIn__checkboxBlock} name='rememberMe' type='checkbox' label={'Remember me'} />
             <button type='submit' className={styles.SignIn__button}>Submit</button>
           </Form>
         )}
@@ -50,4 +43,5 @@ export function SignIn(props) {
     </div>
   )
 }
+
 
