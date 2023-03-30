@@ -8,20 +8,22 @@ exports.authUser = async (req, res) => {
   const userData = req.body;
   try {
     const user = await UserInfo.findOne({ email: userData.email });
-    if (!user) {
-      // Проверка наличия пользователя с такой почтой
-      console.log(`There no users with email "${userData.email}"`);
-      res.json(createAuthStatus(1));
-    } else if (!bcrypt.compareSync(userData.password, user.password)) {
-      // Проверка  захэшированного пароля
-      console.log(`Wrong password!`);
-      res.json(createAuthStatus(1));
-    } else {
-      console.log(`${user.name} logged successfully`);
-      const userSession = await setUserSession(user);
-      res.cookie('session', userSession.session, { signed: true })
-      res.json(createAuthStatus(0, userSession));
-    }
+    
+    // Проверка наличия пользователя с такой почтой
+    if (!user) throw new Error(`There no users with email "${userData.email}"`);
+    
+    // Проверка  захэшированного пароля
+    if (!bcrypt.compareSync(userData.password, user.password)) throw new Error(`Wrong password!`);
+    
+    console.log(`${user.name} logged successfully`);
+    
+    const userSession = await setUserSession(user);
+    res.cookie('session', userSession.session, {
+      signed: true,
+      expires: userData.rememberMe ? new Date(Date.now() + 99999999) : false
+    })
+    res.json(createAuthStatus(0, userSession));
+
   } catch (e) {
     console.log(e.message);
     res.json(createAuthStatus(1));

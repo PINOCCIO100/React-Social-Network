@@ -4,22 +4,25 @@ import * as Yup from 'yup';
 
 const signInSchema = Yup.object({
   email: Yup.string().email().required(),
-  password: Yup.string().required()
+  password: Yup.string().required(),
+  rememberMe: Yup.boolean()
 })
 
 export function SignIn(props) {
   return (
     <div className={styles.SignIn}>
-      <Formik 
+      <Formik
         initialValues={{
           email: '',
-          password: ''
+          password: '',
+          rememberMe: false
         }}
         validationSchema={signInSchema}
         onSubmit={(values) => {
           props.submitUserData({
             email: values.email,
-            password: values.password
+            password: values.password,
+            rememberMe: values.rememberMe
           })
         }}
       >
@@ -33,6 +36,12 @@ export function SignIn(props) {
             <label className={styles.SignIn__label} htmlFor='password'>Password</label>
             <Field className={styles.SignIn__password} name='password' type='password' />
             <ErrorMessage name='password' />
+
+            <div className={styles.SignIn__checkboxBlock}>
+              <Field name='rememberMe' type='checkbox' />
+              <label className={styles.SignIn__label} htmlFor='rememberMe'>Remember me</label>
+            </div>
+            {/* <ErrorMessage name='rememberMe' /> */}
 
             <button type='submit' className={styles.SignIn__button}>Submit</button>
           </Form>

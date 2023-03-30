@@ -8,6 +8,6 @@ module.exports = async function (req, res, next) {
     req.session = userSession;
     next();
   } else {
-    res.status(400).send('You are not authorized!');
+    res.status(299).send('You are not authorized!');
   }
 }

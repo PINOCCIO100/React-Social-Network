@@ -63,6 +63,7 @@
       }
 
       &:disabled {
+        cursor: auto;
         background-color: var(--color-bg-10);
       }
     }

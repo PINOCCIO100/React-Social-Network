@@ -1,5 +1,9 @@
 .SignIn {
-  grid-area:main;
+  * {
+    user-select: none;
+  }
+
+  grid-area: main;
   // background-color: red;
   padding: 5rem 0 0 0;
   width: 100%;
@@ -29,6 +33,19 @@
 .SignIn__label {
   font-weight: 700;
 }
+
+.SignIn__checkboxBlock {
+  flex: 0 0 auto;
+  label {
+    margin-left: 10px;
+  }
+
+  input {
+    cursor: pointer;
+    padding: 50px;
+  }
+}
+
 
 .SignIn__button {
   align-self: flex-end;
