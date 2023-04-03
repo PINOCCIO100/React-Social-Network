@@ -102,7 +102,22 @@ export const publishPost = () => async (dispatch, getState) => {
     }));
     dispatch(setPostPosterText(id, ''));
   }
+};
+export const createPost = (message) => async (dispatch, getState) => {
+  const curUsID = getState().Auth.userData.userID;
+  const id = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
+  if (!id) return;
+  // const message = getState().PostsState.usersPostPosterText[id];
+  const res = await reqPublishPost(id, message);
+  if (res.resultCode === 0) {
+    dispatch(addPost({
+      ...res.data,
+      photo: reqUsersAvatar(curUsID)
+    }));
+    // dispatch(setPostPosterText(id, ''));
+  }
 }
+
 export const setCurrentPostPosterText = (text) => (dispatch, getState) => {
   const userID = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
   if (!userID) return;

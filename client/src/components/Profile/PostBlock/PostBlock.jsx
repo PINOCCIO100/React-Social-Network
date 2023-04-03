@@ -1,14 +1,14 @@
 import s from './PostBlock.module.scss';
 
-import TextInputPostBlockContainer from './TextInputPostBlockContainer/TextInputPostBlockContainer';
 import PostPostedListContainer from './PostPostedList/PostPostedListContainer/PostPostedListContainer';
+import TextInputPostBlock from './TextInputPostBlock/TextInputPostBlock';
 
 
 function PostBlock() {
   return (
     <div className={s.postBlock}>
       <h1 className={s.postBlock__title}>My posts</h1>
-      <TextInputPostBlockContainer
+      <TextInputPostBlock
         className={s.postBlock__TextInput}
       />
       <PostPostedListContainer />
