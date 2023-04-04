@@ -121,5 +121,13 @@ export const sendMessage = () => async (dispatch, getState) => {
     dispatch(setMessageSenderText(''));
   }
 }
-
+export const createMessage = (message) => async (dispatch, getState) => {
+  const id = getState().DialogsState.companionProfile.id;
+  // const text = getState().DialogsState.usersMessageSenderText[id];
+  const res = await reqSendMessage(id, message);
+  if (res.resultCode === 0) {
+    dispatch(addMessage(res.data));
+    // dispatch(setMessageSenderText(''));
+  }
+}
 export default usersMessagesReducer

@@ -1,18 +1,22 @@
-import s from './DialogsMessages.module.scss';
+import { useDispatch } from 'react-redux';
+import FormikTextInput from '../../sharedComponents/FormikTextInput/FormikTextInput';
+import styles from './DialogsMessages.module.scss';
 
-import { TextInputDialogsMessagesContainer } from './TextInputDialogsMessagesContainer/TextInputDialogsMessagesContainer';
+import { useCallback } from 'react';
+import { createMessage } from '../../../store/reducers/usersMessagesReducer';
 import { DialogsMessagesListContainer } from './DialogsMessagesListContainer/DialogsMessagesListContainer';
-import { useParams } from 'react-router-dom';
 
 export function DialogsMessages() {
+  const dispatch = useDispatch();
+  const sendMessage = useCallback((message) => dispatch(createMessage(message)), [dispatch]);
   return (
-    <div className={s.DialogsMessages}>
-      <div className={s.DialogsMessages__container + " scrollBar"}>
-        <DialogsMessagesListContainer/>
+    <div className={styles.DialogsMessages}>
+      <div className={styles.DialogsMessages__container + " scrollBar"}>
+        <DialogsMessagesListContainer />
       </div>
-      <TextInputDialogsMessagesContainer
-        userID={useParams().userID}
-        className={s.DialogsMessages__TextInput}
+      <FormikTextInput
+        className={styles.DialogsMessages__TextInput}
+        handleSubmit={sendMessage}
       />
     </div >
   );
