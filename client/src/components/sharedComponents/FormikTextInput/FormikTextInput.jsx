@@ -18,7 +18,7 @@ const autoResize = (textAreaElem) => {
 
 export default function FormikTextInput(props) {
 
-
+//1
   const messageValidation = Yup.object({
     message: Yup.string().max(255, 'Message must be at most 255 characters')
   })
