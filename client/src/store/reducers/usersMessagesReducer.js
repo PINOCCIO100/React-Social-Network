@@ -112,15 +112,6 @@ export const getCompanionProfile = (userID) => async (dispatch) => {
   }
   dispatch(setCompanionProfile(profile));
 }
-export const sendMessage = () => async (dispatch, getState) => {
-  const id = getState().DialogsState.companionProfile.id;
-  const text = getState().DialogsState.usersMessageSenderText[id];
-  const res = await reqSendMessage(id, text);
-  if (res.resultCode === 0) {
-    dispatch(addMessage(res.data));
-    dispatch(setMessageSenderText(''));
-  }
-}
 export const createMessage = (message) => async (dispatch, getState) => {
   const id = getState().DialogsState.companionProfile.id;
   // const text = getState().DialogsState.usersMessageSenderText[id];

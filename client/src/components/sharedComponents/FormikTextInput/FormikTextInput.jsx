@@ -16,13 +16,11 @@ const autoResize = (textAreaElem) => {
   }
 }
 
+const messageValidation = Yup.object({
+  message: Yup.string().max(255, 'Message must be at most 255 characters')
+})
+
 export default function FormikTextInput(props) {
-
-//1
-  const messageValidation = Yup.object({
-    message: Yup.string().max(255, 'Message must be at most 255 characters')
-  })
-
   return (
     <Formik
       initialValues={{
@@ -30,7 +28,6 @@ export default function FormikTextInput(props) {
       }}
       validationSchema={messageValidation}
       onSubmit={async ({ message }, { resetForm, setSubmitting }) => {
-        // await dispatch(createMessage(message));
         await props.handleSubmit(message)
         setSubmitting(false);
         resetForm();
@@ -63,7 +60,7 @@ const CustomTextArea = (props) => {
   const { handleSubmit } = useFormikContext();
   return <textarea
     ref={textAreaElem}
-    // Выглядит как костыль, но по другому textArea не сабмитится при нажатии на enter
+    // Выглядит как костыль, но по другому textArea не сабмитится при нажатии на Enter
     onKeyDown={(e) => { e.code === 'Enter' && e.ctrlKey && handleSubmit(e) }}
     {...props}
   />

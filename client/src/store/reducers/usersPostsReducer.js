@@ -89,20 +89,6 @@ export const getAllMyPosts = () => async (dispatch, getState) => {
   dispatch(setUserPosts(posts));
   dispatch(setFetching(POSTS, false));
 };
-export const publishPost = () => async (dispatch, getState) => {
-  const curUsID = getState().Auth.userData.userID;
-  const id = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
-  if (!id) return;
-  const text = getState().PostsState.usersPostPosterText[id];
-  const res = await reqPublishPost(id, text);
-  if (res.resultCode === 0) {
-    dispatch(addPost({
-      ...res.data,
-      photo: reqUsersAvatar(curUsID)
-    }));
-    dispatch(setPostPosterText(id, ''));
-  }
-};
 export const createPost = (message) => async (dispatch, getState) => {
   const curUsID = getState().Auth.userData.userID;
   const id = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
