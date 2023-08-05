@@ -5,17 +5,17 @@ import s from './ProfileStatus.module.scss';
 
 
 function ProfileStatus(props) {
+  
   const dispatch = useDispatch();
 
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status ?? '');
 
-  const me = useSelector(state => state.Auth.userData.userID === state.ProfileState.userProfileInfo.id);
+  const me = useSelector(state => state.Auth.id === state.ProfileState.userProfileInfo.id);
 
   const enterKeyHandler = (e) => {
     if (e.code === 'Enter') createStatus();
   }
-
   const createStatus = () => {
     dispatch(setStatusThunk(status))
     setEditMode(false);
@@ -24,7 +24,6 @@ function ProfileStatus(props) {
   const onDoubleClick = () => {
     if (me) setEditMode(true)
   }
-
   return (
     <div className={s.ProfileStatus}>
       {editMode && me ?

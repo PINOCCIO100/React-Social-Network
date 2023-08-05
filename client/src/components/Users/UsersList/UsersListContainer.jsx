@@ -32,7 +32,7 @@ export default compose(
       isFetching: state.FetchingState[USERS_PAGE],
       followingProcess: state.UsersPage.followingProcess,
       users: state.UsersPage.users,
-      curUsID: state.Auth.userData.userID
+      curUsID: state.Auth.id
     }),
     {
       getUsers,

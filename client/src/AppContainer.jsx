@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { AUTH } from './store/reducers/fetchingReducer';
-import { handleLogin } from './store/reducers/authReducer';
+import { handleAuthStatus } from './store/reducers/authReducer';
 
 import { App } from './App';
 
@@ -11,7 +11,7 @@ import Preloader from './components/sharedComponents/Preloader/Preloader';
 
 function AppContainer(props) {
   useEffect(() => {
-    props.handleLogin()
+    props.handleAuthStatus()
   }, []);
 
   return props.isFetching ?
@@ -24,4 +24,4 @@ export default connect((state) => {
     isAuth: state.Auth.isAuth,
     isFetching: state.FetchingState[AUTH],
   }
-}, { handleLogin })(AppContainer)
+}, { handleAuthStatus })(AppContainer)

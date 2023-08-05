@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import s from './PostBlock.module.scss';
+import styles from './PostBlock.module.scss';
 
 import { useCallback } from 'react';
 import { createPost } from '../../../store/reducers/usersPostsReducer';
@@ -11,10 +11,10 @@ function PostBlock() {
   const dispatch = useDispatch();
   const sendPost = useCallback((post) => dispatch(createPost(post)), [dispatch])
   return (
-    <div className={s.postBlock}>
-      <h1 className={s.postBlock__title}>My posts</h1>
+    <div className={styles.postBlock}>
+      <h1 className={styles.postBlock__title}>My posts</h1>
       <FormikTextInput
-        className={s.postBlock__TextInput}
+        className={styles.postBlock__TextInput}
         handleSubmit={sendPost}
       />
       <PostPostedListContainer />

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { submitUserData } from "../../store/reducers/authReducer";
+import { handleLogin } from "../../store/reducers/authReducer";
 import { compose } from "redux";
 import { SignIn } from "./SignIn";
 
@@ -16,7 +16,7 @@ function AuthAPI(props) {
 
   return (
     <SignIn
-      submitUserData={props.submitUserData}
+      handleLogin={props.handleLogin}
     />
   );
 }
@@ -27,5 +27,5 @@ export default compose(
     (state) => ({
       isAuth: state.Auth.isAuth,
     }),
-    { submitUserData }),
+    { handleLogin }),
 )(AuthAPI);

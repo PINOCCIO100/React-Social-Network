@@ -10,8 +10,8 @@ exports.createUserStatus = async (req, res) => {
   try {
     const userID = req.session.id;
     const { text } = req.body;
-    const currStatus = await UserInfo.findOne({ id: userID }).populate('status');
-    if (currStatus?.status.body !== text) {
+    const curUSerInfo = await UserInfo.findOne({ id: userID }).populate('status');
+    if (curUSerInfo?.status?.body !== text) {
       if (text !== '' && text !== undefined) {
         const status = await Status.create({
           id: userID,
@@ -29,6 +29,7 @@ exports.createUserStatus = async (req, res) => {
       message: [],
     })
   } catch (e) {
+    console.log(e);
     res.json({
       resultCode: 1,
       message: [e.message],

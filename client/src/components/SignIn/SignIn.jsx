@@ -20,8 +20,7 @@ export function SignIn(props) {
         }}
         validationSchema={signInSchema}
         onSubmit={(values) => {
-          console.log(values);
-          props.submitUserData(values)
+          props.handleLogin(values)
         }}
       >
         {({ values, errors, touched }) => (

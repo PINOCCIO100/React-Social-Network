@@ -9,12 +9,12 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Sidebar from './components/SideBar/Sidebar';
 // import Settings from './components/Settings/Settings';
-import Users from './components/Users/Users';
-import ProfileRouter from './components/Profile/ProfileRouter';
-import TrailingPage from './components/TrailingPage/TrailingPage';
-import Redirect from './components/sharedComponents/WithAuthRedirect/WithAuthRedirect';
 import { SignUpForm } from './SignUpForm';
+import ProfileRouter from './components/Profile/ProfileRouter';
 import SignInContainer from './components/SignIn/SignInContainer';
+import TrailingPage from './components/TrailingPage/TrailingPage';
+import Users from './components/Users/Users';
+import Redirect from './components/sharedComponents/WithAuthRedirect/WithAuthRedirect';
 
 export function App() {
   return (

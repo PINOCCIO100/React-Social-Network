@@ -7,11 +7,9 @@ const SET_USER_DATA = 'SET-USER-DATA';
 const SET_AUTH = 'SET-AUTH';
 
 const initialState = {
-  userData: {
-    userID: null,
-    email: null,
-    login: null,
-  },
+  id: null,
+  email: null,
+  name: null,
   isAuth: false,
 };
 
@@ -20,7 +18,7 @@ export default function authReducer(state = initialState, action) {
     case SET_USER_DATA:
       return {
         ...state,
-        userData: { ...action.payload.userData },
+        ...action.payload,
       };
     case SET_AUTH:
       return {
@@ -32,36 +30,35 @@ export default function authReducer(state = initialState, action) {
   }
 }
 
-export const setUserData = (userID, email) => ({
+export const setUserData = (id, email, name, isAuth) => ({
   type: SET_USER_DATA,
-  payload: {
-    userData: { userID, email }
-  }
+  payload: { id, email, name, isAuth }
 });
 export const setIsAuth = (isAuth) => ({
   type: SET_AUTH,
   payload: { isAuth }
 });
 
-export const handleLogin = () => async (dispatch) => {
+export const handleAuthStatus = () => async (dispatch) => {
   dispatch(setFetching(AUTH, true));
   const res = await reqAuthStatus()
   if (res.resultCode === 0) {
-    dispatch(setUserData(res.data.id, res.data.email));
-    dispatch(setIsAuth(true));
-  } else {
-    dispatch(setIsAuth(false)); // TODO: нужно ли?
+    dispatch(setUserData(
+      res.data.id,
+      res.data.email,
+      res.data.name,
+      true
+    ));
   }
   dispatch(setFetching(AUTH, false));
 };
 export const handleLogout = () => (dispatch) => {
-  dispatch(setIsAuth(false));
+  dispatch(setUserData(null, null, null, false))
   Cookies.remove('session');
 };
-export const submitUserData = (userData) => async (dispatch) => {
-  const res = await reqAuthUser(userData);
+export const handleLogin = ({ email, password, rememberMe }) => async (dispatch) => {
+  const res = await reqAuthUser({ email, password, rememberMe });
   if (res.resultCode === 0) {
-    dispatch(setIsAuth(true));
-    dispatch(setUserData(res.data.id, res.data.email));
+    dispatch(handleAuthStatus())
   }
 };

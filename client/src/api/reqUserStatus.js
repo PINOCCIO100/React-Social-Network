@@ -5,5 +5,5 @@ export async function reqUserStatus(userID) {
 }
 
 export async function reqCreateStatus(text) {
-  return await fetcher.post(`/api/status`, {text}).then(res => res.data);
+  return await fetcher.post(`/api/status`, { text }).then(res => res.data);
 }

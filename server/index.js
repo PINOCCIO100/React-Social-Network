@@ -51,7 +51,7 @@ app.use(express.urlencoded({ extended: true }));
 // for parsing cookies
 app.use(cookieParser(process.env.SECRET));
 
-// app.use(logger); // Для отображения в консоли входящих  запросов
+app.use(logger); // Для отображения в консоли входящих  запросов
 
 app.use('/api/auth', authRoute);
 

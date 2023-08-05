@@ -9,7 +9,7 @@ const SET_USER_POSTS = 'SET-USER-POSTS';
 const RATE_POST = 'RATE-POST';
 
 let initialState = {
-  usersPostPosterText: {},
+  // usersPostPosterText: {}, 
   usersPosts: [],
 };
 
@@ -89,6 +89,7 @@ export const getAllMyPosts = () => async (dispatch, getState) => {
   dispatch(setUserPosts(posts));
   dispatch(setFetching(POSTS, false));
 };
+
 export const createPost = (message) => async (dispatch, getState) => {
   const curUsID = getState().Auth.userData.userID;
   const id = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
@@ -102,13 +103,14 @@ export const createPost = (message) => async (dispatch, getState) => {
     }));
     // dispatch(setPostPosterText(id, ''));
   }
-}
+};
 
-export const setCurrentPostPosterText = (text) => (dispatch, getState) => {
+export const setCurrentPostPosterText = (text) => (dispatch, getState) => { // TODO: Пока нигде не используется.
   const userID = getState().ProfileState.userProfileInfo?.id; // TODO: DRY!!
   if (!userID) return;
   dispatch(setPostPosterText(userID, text));
 };
+
 export const ratePostThunk = (postID, rating) => async (dispatch) => {
   const res = await reqRate(postID, rating, 'post');
   if (res.resultCode === 0) {

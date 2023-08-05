@@ -29,7 +29,7 @@ function ProfileContainerAPI(props) {
 export default compose(
   connect(
     (state) => ({
-      currentUserID: state.Auth.userData.userID,
+      currentUserID: state.Auth.id,
       userProfileInfo: state.ProfileState.userProfileInfo,
       isFetching: state.FetchingState[PROFILE_INFO],
     }),
