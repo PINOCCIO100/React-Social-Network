@@ -29,7 +29,6 @@ exports.createUserStatus = async (req, res) => {
       message: [],
     })
   } catch (e) {
-    console.log(e);
     res.json({
       resultCode: 1,
       message: [e.message],

@@ -4,7 +4,7 @@ import styles from './PostBlock.module.scss';
 import { useCallback } from 'react';
 import { createPost } from '../../../store/reducers/usersPostsReducer';
 import FormikTextInput from '../../sharedComponents/FormikTextInput/FormikTextInput';
-import PostPostedListContainer from './PostPostedList/PostPostedListContainer/PostPostedListContainer';
+import PostPostedListContainer from './PostPostedList/PostPostedListContainer';
 
 
 function PostBlock() {
